@@ -19,10 +19,12 @@ namespace Auto_Layers_SCR
 
         private void DataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
-            e.Row.Cells[1].Value = "(ignore)";
-            e.Row.Cells[2].Value = "(ignore)";
-            e.Row.Cells[3].Value = "(ignore)";
-            e.Row.Cells[4].Value = "(ignore)";
+            e.Row.Cells[0].Value = string.Format("{0:D2}_", e.Row.Index + 1);
+            e.Row.Cells[1].Value = true;
+            e.Row.Cells[2].Value = false;
+            e.Row.Cells[3].Value = false;
+            e.Row.Cells[4].Value = true;
+            e.Row.Cells[5].Value = "7";
         }
 
         private int CheckError(int rowcount)
@@ -49,6 +51,7 @@ namespace Auto_Layers_SCR
 
         private void button1_Click(object sender, EventArgs e)
         {
+            dataGridView1.CurrentCell = null;
             int rowcount = dataGridView1.RowCount, cellcount = dataGridView1.ColumnCount;
             int error = CheckError(rowcount);
             if (error == 0)
@@ -80,80 +83,51 @@ namespace Auto_Layers_SCR
                             }
                             else if (j == 1)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "(ignore)")
-                                {
-
-                                }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "True")
-                                {
-                                    sw.WriteLine("on");
-                                    sw.WriteLine(cell0value);
-                                }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "False")
-                                {
-                                    sw.WriteLine("off");
-                                    sw.WriteLine(cell0value);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("An error occurred in the drop-down list in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this drop-down list ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
+                                
                             }
                             else if (j == 2)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "(ignore)")
-                                {
-
-                                }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "True")
+                                if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == true)
                                 {
                                     sw.WriteLine("f");
                                     sw.WriteLine(cell0value);
                                 }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "False")
+                                else if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == false)
                                 {
                                     sw.WriteLine("t");
                                     sw.WriteLine(cell0value);
                                 }
                                 else
                                 {
-                                    MessageBox.Show("An error occurred in the drop-down list in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this drop-down list ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("An error occurred in the checkbox in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this checkbox ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                             else if (j == 3)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "(ignore)")
-                                {
-
-                                }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "True")
+                                if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == true)
                                 {
                                     sw.WriteLine("lo");
                                     sw.WriteLine(cell0value);
                                 }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "False")
+                                else if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == false)
                                 {
                                     sw.WriteLine("u");
                                     sw.WriteLine(cell0value);
                                 }
                                 else
                                 {
-                                    MessageBox.Show("An error occurred in the drop-down list in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this drop-down list ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("An error occurred in the checkbox in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this checkbox ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                             else if (j == 4)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "(ignore)")
-                                {
-
-                                }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "True")
+                                if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == true)
                                 {
                                     sw.WriteLine("p");
                                     sw.WriteLine("p");
                                     sw.WriteLine(cell0value);
                                 }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "False")
+                                else if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == false)
                                 {
                                     sw.WriteLine("p");
                                     sw.WriteLine("n");
@@ -161,12 +135,20 @@ namespace Auto_Layers_SCR
                                 }
                                 else
                                 {
-                                    MessageBox.Show("An error occurred in the drop-down list in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this drop-down list ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("An error occurred in the checkbox in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this checkbox ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                             else if (j == 5)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value != null)
+                                if (dataGridView1.Rows[i].Cells[j].Value == null)
+                                {
+
+                                }
+                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "")
+                                {
+
+                                }
+                                else
                                 {
                                     sw.WriteLine("c");
                                     sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value.ToString());
@@ -175,7 +157,15 @@ namespace Auto_Layers_SCR
                             }
                             else if (j == 6)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value != null)
+                                if (dataGridView1.Rows[i].Cells[j].Value == null)
+                                {
+
+                                }
+                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "")
+                                {
+
+                                }
+                                else
                                 {
                                     sw.WriteLine("l");
                                     sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value.ToString());
@@ -184,7 +174,15 @@ namespace Auto_Layers_SCR
                             }
                             else if (j == 7)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value != null)
+                                if (dataGridView1.Rows[i].Cells[j].Value == null)
+                                {
+
+                                }
+                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "")
+                                {
+
+                                }
+                                else
                                 {
                                     sw.WriteLine("lw");
                                     sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value.ToString());
@@ -193,7 +191,15 @@ namespace Auto_Layers_SCR
                             }
                             else if (j == 8)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value != null)
+                                if (dataGridView1.Rows[i].Cells[j].Value == null)
+                                {
+
+                                }
+                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "")
+                                {
+
+                                }
+                                else
                                 {
                                     sw.WriteLine("tr");
                                     sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value.ToString());
@@ -202,13 +208,35 @@ namespace Auto_Layers_SCR
                             }
                             else if (j == 9)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value != null)
+                                if (dataGridView1.Rows[i].Cells[j].Value == null)
+                                {
+
+                                }
+                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "")
+                                {
+
+                                }
+                                else
                                 {
                                     sw.WriteLine("d");
                                     sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value.ToString());
                                     sw.WriteLine(cell0value);
                                 }
                             }
+                        }
+                        if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[1].Value) == true)
+                        {
+                            sw.WriteLine("on");
+                            sw.WriteLine(cell0value);
+                        }
+                        else if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[1].Value) == false)
+                        {
+                            sw.WriteLine("off");
+                            sw.WriteLine(cell0value);
+                        }
+                        else
+                        {
+                            MessageBox.Show("An error occurred in the checkbox in row " + Convert.ToString(i + 1) + ", column 1. Please contact your application developer. The file will be generated with this checkbox ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     sw.WriteLine("");
@@ -232,6 +260,7 @@ namespace Auto_Layers_SCR
 
         private void generateToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            dataGridView1.CurrentCell = null;
             int rowcount = dataGridView1.RowCount, cellcount = dataGridView1.ColumnCount;
             int error = CheckError(rowcount);
             if (error == 0)
@@ -263,80 +292,51 @@ namespace Auto_Layers_SCR
                             }
                             else if (j == 1)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "(ignore)")
-                                {
-
-                                }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "True")
-                                {
-                                    sw.WriteLine("on");
-                                    sw.WriteLine(cell0value);
-                                }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "False")
-                                {
-                                    sw.WriteLine("off");
-                                    sw.WriteLine(cell0value);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("An error occurred in the drop-down list in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this drop-down list ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
+                                
                             }
                             else if (j == 2)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "(ignore)")
-                                {
-
-                                }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "True")
+                                if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == true)
                                 {
                                     sw.WriteLine("f");
                                     sw.WriteLine(cell0value);
                                 }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "False")
+                                else if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == false)
                                 {
                                     sw.WriteLine("t");
                                     sw.WriteLine(cell0value);
                                 }
                                 else
                                 {
-                                    MessageBox.Show("An error occurred in the drop-down list in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this drop-down list ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("An error occurred in the checkbox in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this checkbox ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                             else if (j == 3)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "(ignore)")
-                                {
-
-                                }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "True")
+                                if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == true)
                                 {
                                     sw.WriteLine("lo");
                                     sw.WriteLine(cell0value);
                                 }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "False")
+                                else if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == false)
                                 {
                                     sw.WriteLine("u");
                                     sw.WriteLine(cell0value);
                                 }
                                 else
                                 {
-                                    MessageBox.Show("An error occurred in the drop-down list in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this drop-down list ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("An error occurred in the checkbox in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this checkbox ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                             else if (j == 4)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "(ignore)")
-                                {
-
-                                }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "True")
+                                if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == true)
                                 {
                                     sw.WriteLine("p");
                                     sw.WriteLine("p");
                                     sw.WriteLine(cell0value);
                                 }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "False")
+                                else if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == false)
                                 {
                                     sw.WriteLine("p");
                                     sw.WriteLine("n");
@@ -344,12 +344,20 @@ namespace Auto_Layers_SCR
                                 }
                                 else
                                 {
-                                    MessageBox.Show("An error occurred in the drop-down list in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this drop-down list ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("An error occurred in the checkbox in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this checkbox ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                             else if (j == 5)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value != null)
+                                if (dataGridView1.Rows[i].Cells[j].Value == null)
+                                {
+
+                                }
+                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "")
+                                {
+
+                                }
+                                else
                                 {
                                     sw.WriteLine("c");
                                     sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value.ToString());
@@ -358,7 +366,15 @@ namespace Auto_Layers_SCR
                             }
                             else if (j == 6)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value != null)
+                                if (dataGridView1.Rows[i].Cells[j].Value == null)
+                                {
+
+                                }
+                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "")
+                                {
+
+                                }
+                                else
                                 {
                                     sw.WriteLine("l");
                                     sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value.ToString());
@@ -367,7 +383,15 @@ namespace Auto_Layers_SCR
                             }
                             else if (j == 7)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value != null)
+                                if (dataGridView1.Rows[i].Cells[j].Value == null)
+                                {
+
+                                }
+                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "")
+                                {
+
+                                }
+                                else
                                 {
                                     sw.WriteLine("lw");
                                     sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value.ToString());
@@ -376,7 +400,15 @@ namespace Auto_Layers_SCR
                             }
                             else if (j == 8)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value != null)
+                                if (dataGridView1.Rows[i].Cells[j].Value == null)
+                                {
+
+                                }
+                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "")
+                                {
+
+                                }
+                                else
                                 {
                                     sw.WriteLine("tr");
                                     sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value.ToString());
@@ -385,13 +417,35 @@ namespace Auto_Layers_SCR
                             }
                             else if (j == 9)
                             {
-                                if (dataGridView1.Rows[i].Cells[j].Value != null)
+                                if (dataGridView1.Rows[i].Cells[j].Value == null)
+                                {
+
+                                }
+                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "")
+                                {
+
+                                }
+                                else
                                 {
                                     sw.WriteLine("d");
                                     sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value.ToString());
                                     sw.WriteLine(cell0value);
                                 }
                             }
+                        }
+                        if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[1].Value) == true)
+                        {
+                            sw.WriteLine("on");
+                            sw.WriteLine(cell0value);
+                        }
+                        else if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[1].Value) == false)
+                        {
+                            sw.WriteLine("off");
+                            sw.WriteLine(cell0value);
+                        }
+                        else
+                        {
+                            MessageBox.Show("An error occurred in the checkbox in row " + Convert.ToString(i + 1) + ", column 1. Please contact your application developer. The file will be generated with this checkbox ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     sw.WriteLine("");
@@ -404,6 +458,7 @@ namespace Auto_Layers_SCR
 
         private void loadFromXMLFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            dataGridView1.CurrentCell = null;
             int cellcount = dataGridView1.ColumnCount;
             DialogResult result = MessageBox.Show("The information of the currently displayed layer will be overwritten.\r\nDo you want to continue?", "Auto Layers SCR", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
@@ -485,6 +540,7 @@ namespace Auto_Layers_SCR
 
         private void saveAsXMLFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            dataGridView1.CurrentCell = null;
             int rowcount = dataGridView1.RowCount, cellcount = dataGridView1.ColumnCount;
             int error = CheckError(rowcount);
             if (error == 0)
