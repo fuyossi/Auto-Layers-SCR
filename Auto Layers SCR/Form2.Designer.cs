@@ -87,8 +87,8 @@
             this.label1.Location = new System.Drawing.Point(87, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Auto Layers SCR ver2.0.0";
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Auto Layers SCR ver2.0.1";
             // 
             // label2
             // 
@@ -97,7 +97,7 @@
             this.label2.Location = new System.Drawing.Point(90, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 15);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 3;
             this.label2.Text = "Copyright (c) 2021 yossi";
             // 
             // label3
@@ -107,7 +107,7 @@
             this.label3.Location = new System.Drawing.Point(69, 50);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(181, 15);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 4;
             this.label3.Text = "Released under the MIT license";
             // 
             // linkLabel1
@@ -117,7 +117,7 @@
             this.linkLabel1.Location = new System.Drawing.Point(26, 74);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(268, 15);
-            this.linkLabel1.TabIndex = 4;
+            this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "https://opensource.org/licenses/mit-license.php";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
@@ -144,7 +144,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(434, 100);
-            this.tableLayoutPanel3.TabIndex = 1;
+            this.tableLayoutPanel3.TabIndex = 6;
             // 
             // button1
             // 
@@ -152,7 +152,7 @@
             this.button1.Location = new System.Drawing.Point(167, 30);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 40);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 7;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

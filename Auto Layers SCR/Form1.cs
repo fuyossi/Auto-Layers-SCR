@@ -56,16 +56,17 @@ namespace Auto_Layers_SCR
             int error = CheckError(rowcount);
             if (error == 0)
             {
-                SaveFileDialog sfd = new SaveFileDialog();
-
-                sfd.FileName = "filename.scr";
-                sfd.InitialDirectory = @"C:\";
-                sfd.Filter = "SCR(*.scr)|*.scr|All files(*.*)|*.*";
-                sfd.FilterIndex = 1;
-                sfd.Title = "Select a file to save the file to.";
-                sfd.RestoreDirectory = true;
-                sfd.OverwritePrompt = true;
-                sfd.CheckPathExists = true;
+                SaveFileDialog sfd = new SaveFileDialog
+                {
+                    FileName = "filename.scr",
+                    InitialDirectory = @"C:\",
+                    Filter = "SCR(*.scr)|*.scr|All files(*.*)|*.*",
+                    FilterIndex = 1,
+                    Title = "Select a file to save the file to.",
+                    RestoreDirectory = true,
+                    OverwritePrompt = true,
+                    CheckPathExists = true
+                };
 
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -83,7 +84,7 @@ namespace Auto_Layers_SCR
                             }
                             else if (j == 1)
                             {
-                                
+
                             }
                             else if (j == 2)
                             {
@@ -265,16 +266,17 @@ namespace Auto_Layers_SCR
             int error = CheckError(rowcount);
             if (error == 0)
             {
-                SaveFileDialog sfd = new SaveFileDialog();
-
-                sfd.FileName = "filename.scr";
-                sfd.InitialDirectory = @"C:\";
-                sfd.Filter = "SCR(*.scr)|*.scr|All files(*.*)|*.*";
-                sfd.FilterIndex = 1;
-                sfd.Title = "Select a file to save the file to.";
-                sfd.RestoreDirectory = true;
-                sfd.OverwritePrompt = true;
-                sfd.CheckPathExists = true;
+                SaveFileDialog sfd = new SaveFileDialog
+                {
+                    FileName = "filename.scr",
+                    InitialDirectory = @"C:\",
+                    Filter = "SCR(*.scr)|*.scr|All files(*.*)|*.*",
+                    FilterIndex = 1,
+                    Title = "Select a file to save the file to.",
+                    RestoreDirectory = true,
+                    OverwritePrompt = true,
+                    CheckPathExists = true
+                };
 
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -292,7 +294,7 @@ namespace Auto_Layers_SCR
                             }
                             else if (j == 1)
                             {
-                                
+
                             }
                             else if (j == 2)
                             {
@@ -459,21 +461,21 @@ namespace Auto_Layers_SCR
         private void loadFromXMLFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dataGridView1.CurrentCell = null;
-            int cellcount = dataGridView1.ColumnCount;
             DialogResult result = MessageBox.Show("The information of the currently displayed layer will be overwritten.\r\nDo you want to continue?", "Auto Layers SCR", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
                 dataGridView1.Rows.Clear();
-                OpenFileDialog ofd = new OpenFileDialog();
-
-                ofd.FileName = "XMLfilename.xml";
-                ofd.InitialDirectory = @"C:\";
-                ofd.Filter = "XML(*.xml)|*.xml|All files(*.*)|*.*";
-                ofd.FilterIndex = 1;
-                ofd.Title = "Select a file to save the file to.";
-                ofd.RestoreDirectory = true;
-                ofd.CheckFileExists = true;
-                ofd.CheckPathExists = true;
+                OpenFileDialog ofd = new OpenFileDialog
+                {
+                    FileName = "XMLfilename.xml",
+                    InitialDirectory = @"C:\",
+                    Filter = "XML(*.xml)|*.xml|All files(*.*)|*.*",
+                    FilterIndex = 1,
+                    Title = "Select a file to open.",
+                    RestoreDirectory = true,
+                    CheckFileExists = true,
+                    CheckPathExists = true
+                };
 
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
@@ -545,16 +547,17 @@ namespace Auto_Layers_SCR
             int error = CheckError(rowcount);
             if (error == 0)
             {
-                SaveFileDialog sfd = new SaveFileDialog();
-
-                sfd.FileName = "XMLfilename.xml";
-                sfd.InitialDirectory = @"C:\";
-                sfd.Filter = "XML(*.xml)|*.xml|All files(*.*)|*.*";
-                sfd.FilterIndex = 1;
-                sfd.Title = "Select a file to save the file to.";
-                sfd.RestoreDirectory = true;
-                sfd.OverwritePrompt = true;
-                sfd.CheckPathExists = true;
+                SaveFileDialog sfd = new SaveFileDialog
+                {
+                    FileName = "XMLfilename.xml",
+                    InitialDirectory = @"C:\",
+                    Filter = "XML(*.xml)|*.xml|All files(*.*)|*.*",
+                    FilterIndex = 1,
+                    Title = "Select a file to save the file to.",
+                    RestoreDirectory = true,
+                    OverwritePrompt = true,
+                    CheckPathExists = true
+                };
 
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {

@@ -23,13 +23,9 @@ namespace Auto_Layers_SCR
             {
                 label1.Text = label1.Text + " (x86)";
             }
-            else if (IntPtr.Size == 8)
-            {
-                label1.Text = label1.Text + " (x64)";
-            }
             else
             {
-                MessageBox.Show("Error: Not all of the if branches are applicable. There may be a problem with branching depending on whether the application is 32 or 64 bit.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                label1.Text = label1.Text + " (x64)";
             }
         }
 
