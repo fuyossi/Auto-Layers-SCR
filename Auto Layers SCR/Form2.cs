@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Copyright (c) 2021 fuyossi
+//Released under the MIT license
+//https://opensource.org/licenses/mit-license.php
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,8 +42,5 @@ namespace Auto_Layers_SCR
             linkLabel1.LinkVisited = true;
             System.Diagnostics.Process.Start("https://opensource.org/licenses/mit-license.php");
         }
-        //Copyright (c) 2021 yossi
-        //Released under the MIT license
-        //https://opensource.org/licenses/mit-license.php
     }
 }

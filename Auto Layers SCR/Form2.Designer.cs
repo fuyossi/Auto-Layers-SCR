@@ -88,17 +88,17 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 15);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Auto Layers SCR ver2.0.1";
+            this.label1.Text = "Auto Layers SCR ver2.1.0";
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(90, 27);
+            this.label2.Location = new System.Drawing.Point(85, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 15);
+            this.label2.Size = new System.Drawing.Size(149, 15);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Copyright (c) 2021 yossi";
+            this.label2.Text = "Copyright (c) 2021 fuyossi";
             // 
             // label3
             // 
@@ -125,7 +125,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.BackgroundImage = global::Auto_Layers_SCR.Properties.Resources.Auto_Layers_SCRアイコン;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(29, 25);
             this.pictureBox1.Name = "pictureBox1";
@@ -166,8 +166,12 @@
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(400, 230);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(500, 300);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(400, 240);
             this.Name = "Form2";
             this.Text = "About Auto Layers SCR";
             this.Shown += new System.EventHandler(this.Form2_Shown);

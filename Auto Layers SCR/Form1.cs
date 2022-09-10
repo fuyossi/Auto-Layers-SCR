@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Copyright (c) 2021 fuyossi
+//Released under the MIT license
+//https://opensource.org/licenses/mit-license.php
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,7 +52,7 @@ namespace Auto_Layers_SCR
             return error;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CreateSCR()
         {
             dataGridView1.CurrentCell = null;
             int rowcount = dataGridView1.RowCount, cellcount = dataGridView1.ColumnCount;
@@ -59,7 +62,7 @@ namespace Auto_Layers_SCR
                 SaveFileDialog sfd = new SaveFileDialog
                 {
                     FileName = "filename.scr",
-                    InitialDirectory = @"C:\",
+                    InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal),
                     Filter = "SCR(*.scr)|*.scr|All files(*.*)|*.*",
                     FilterIndex = 1,
                     Title = "Select a file to save the file to.",
@@ -246,6 +249,11 @@ namespace Auto_Layers_SCR
                     MessageBox.Show("Generation completed.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CreateSCR();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -261,201 +269,7 @@ namespace Auto_Layers_SCR
 
         private void generateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dataGridView1.CurrentCell = null;
-            int rowcount = dataGridView1.RowCount, cellcount = dataGridView1.ColumnCount;
-            int error = CheckError(rowcount);
-            if (error == 0)
-            {
-                SaveFileDialog sfd = new SaveFileDialog
-                {
-                    FileName = "filename.scr",
-                    InitialDirectory = @"C:\",
-                    Filter = "SCR(*.scr)|*.scr|All files(*.*)|*.*",
-                    FilterIndex = 1,
-                    Title = "Select a file to save the file to.",
-                    RestoreDirectory = true,
-                    OverwritePrompt = true,
-                    CheckPathExists = true
-                };
-
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    System.IO.StreamWriter sw = new System.IO.StreamWriter(sfd.FileName, false, System.Text.Encoding.UTF8);
-                    sw.WriteLine("-LAYER");
-                    for (int i = 0; i < rowcount - 1; i++)
-                    {
-                        string cell0value = dataGridView1.Rows[i].Cells[0].Value.ToString();
-                        for (int j = 0; j < cellcount; j++)
-                        {
-                            if (j == 0)
-                            {
-                                sw.WriteLine("n");
-                                sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value);
-                            }
-                            else if (j == 1)
-                            {
-
-                            }
-                            else if (j == 2)
-                            {
-                                if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == true)
-                                {
-                                    sw.WriteLine("f");
-                                    sw.WriteLine(cell0value);
-                                }
-                                else if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == false)
-                                {
-                                    sw.WriteLine("t");
-                                    sw.WriteLine(cell0value);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("An error occurred in the checkbox in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this checkbox ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                            else if (j == 3)
-                            {
-                                if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == true)
-                                {
-                                    sw.WriteLine("lo");
-                                    sw.WriteLine(cell0value);
-                                }
-                                else if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == false)
-                                {
-                                    sw.WriteLine("u");
-                                    sw.WriteLine(cell0value);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("An error occurred in the checkbox in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this checkbox ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                            else if (j == 4)
-                            {
-                                if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == true)
-                                {
-                                    sw.WriteLine("p");
-                                    sw.WriteLine("p");
-                                    sw.WriteLine(cell0value);
-                                }
-                                else if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[j].Value) == false)
-                                {
-                                    sw.WriteLine("p");
-                                    sw.WriteLine("n");
-                                    sw.WriteLine(cell0value);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("An error occurred in the checkbox in row " + Convert.ToString(i + 1) + ", column " + Convert.ToString(j + 1) + ". Please contact your application developer. The file will be generated with this checkbox ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                            else if (j == 5)
-                            {
-                                if (dataGridView1.Rows[i].Cells[j].Value == null)
-                                {
-
-                                }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "")
-                                {
-
-                                }
-                                else
-                                {
-                                    sw.WriteLine("c");
-                                    sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value.ToString());
-                                    sw.WriteLine(cell0value);
-                                }
-                            }
-                            else if (j == 6)
-                            {
-                                if (dataGridView1.Rows[i].Cells[j].Value == null)
-                                {
-
-                                }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "")
-                                {
-
-                                }
-                                else
-                                {
-                                    sw.WriteLine("l");
-                                    sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value.ToString());
-                                    sw.WriteLine(cell0value);
-                                }
-                            }
-                            else if (j == 7)
-                            {
-                                if (dataGridView1.Rows[i].Cells[j].Value == null)
-                                {
-
-                                }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "")
-                                {
-
-                                }
-                                else
-                                {
-                                    sw.WriteLine("lw");
-                                    sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value.ToString());
-                                    sw.WriteLine(cell0value);
-                                }
-                            }
-                            else if (j == 8)
-                            {
-                                if (dataGridView1.Rows[i].Cells[j].Value == null)
-                                {
-
-                                }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "")
-                                {
-
-                                }
-                                else
-                                {
-                                    sw.WriteLine("tr");
-                                    sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value.ToString());
-                                    sw.WriteLine(cell0value);
-                                }
-                            }
-                            else if (j == 9)
-                            {
-                                if (dataGridView1.Rows[i].Cells[j].Value == null)
-                                {
-
-                                }
-                                else if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "")
-                                {
-
-                                }
-                                else
-                                {
-                                    sw.WriteLine("d");
-                                    sw.WriteLine(dataGridView1.Rows[i].Cells[j].Value.ToString());
-                                    sw.WriteLine(cell0value);
-                                }
-                            }
-                        }
-                        if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[1].Value) == true)
-                        {
-                            sw.WriteLine("on");
-                            sw.WriteLine(cell0value);
-                        }
-                        else if (System.Convert.ToBoolean(dataGridView1.Rows[i].Cells[1].Value) == false)
-                        {
-                            sw.WriteLine("off");
-                            sw.WriteLine(cell0value);
-                        }
-                        else
-                        {
-                            MessageBox.Show("An error occurred in the checkbox in row " + Convert.ToString(i + 1) + ", column 1. Please contact your application developer. The file will be generated with this checkbox ignored.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    sw.WriteLine("");
-                    sw.WriteLine("qsave");
-                    sw.Close();
-                    MessageBox.Show("Generation completed.", "Auto Layers SCR", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
+            CreateSCR();
         }
 
         private void loadFromXMLFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -468,7 +282,7 @@ namespace Auto_Layers_SCR
                 OpenFileDialog ofd = new OpenFileDialog
                 {
                     FileName = "XMLfilename.xml",
-                    InitialDirectory = @"C:\",
+                    InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal),
                     Filter = "XML(*.xml)|*.xml|All files(*.*)|*.*",
                     FilterIndex = 1,
                     Title = "Select a file to open.",
@@ -550,7 +364,7 @@ namespace Auto_Layers_SCR
                 SaveFileDialog sfd = new SaveFileDialog
                 {
                     FileName = "XMLfilename.xml",
-                    InitialDirectory = @"C:\",
+                    InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal),
                     Filter = "XML(*.xml)|*.xml|All files(*.*)|*.*",
                     FilterIndex = 1,
                     Title = "Select a file to save the file to.",
@@ -667,7 +481,4 @@ namespace Auto_Layers_SCR
         public string Permeability;
         public string Description;
     }
-    //Copyright (c) 2021 yossi
-    //Released under the MIT license
-    //https://opensource.org/licenses/mit-license.php
 }
