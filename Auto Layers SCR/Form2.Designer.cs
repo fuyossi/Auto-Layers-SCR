@@ -84,11 +84,11 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(87, 4);
+            this.label1.Location = new System.Drawing.Point(92, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 15);
+            this.label1.Size = new System.Drawing.Size(135, 15);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Auto Layers SCR ver2.1.0";
+            this.label1.Text = "Auto Layers SCR v2.1.1";
             // 
             // label2
             // 
