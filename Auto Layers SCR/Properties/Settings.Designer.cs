@@ -25,37 +25,61 @@ namespace Auto_Layers_SCR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
-        public global::System.Windows.Forms.FormWindowState F1State {
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public double WindowWidth {
             get {
-                return ((global::System.Windows.Forms.FormWindowState)(this["F1State"]));
+                return ((double)(this["WindowWidth"]));
             }
             set {
-                this["F1State"] = value;
+                this["WindowWidth"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point F1Location {
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public double WindowHeight {
             get {
-                return ((global::System.Drawing.Point)(this["F1Location"]));
+                return ((double)(this["WindowHeight"]));
             }
             set {
-                this["F1Location"] = value;
+                this["WindowHeight"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Size F1Size {
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public double WindowLeft {
             get {
-                return ((global::System.Drawing.Size)(this["F1Size"]));
+                return ((double)(this["WindowLeft"]));
             }
             set {
-                this["F1Size"] = value;
+                this["WindowLeft"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public double WindowTop {
+            get {
+                return ((double)(this["WindowTop"]));
+            }
+            set {
+                this["WindowTop"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool WindowMaximized {
+            get {
+                return ((bool)(this["WindowMaximized"]));
+            }
+            set {
+                this["WindowMaximized"] = value;
             }
         }
     }

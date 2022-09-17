@@ -59,15 +59,5 @@ namespace Auto_Layers_SCR.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
-        /// </summary>
-        internal static System.Drawing.Bitmap Auto_Layers_SCRアイコン {
-            get {
-                object obj = ResourceManager.GetObject("Auto_Layers_SCRアイコン", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
