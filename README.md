@@ -7,7 +7,9 @@ The application automatically generates SCR files for AutoCAD® software by simp
 
 ## How to use
 Enter the layer information in the table and click the Generate button.  
-Alternatively, you can use "File" -> "Load from JSON file" from the menu bar to load the previously saved layer information.
+You can also save the layer information as a JSON file and reuse it in future sessions.  
+It can be saved with "File" -> "Save as JSON file".  
+To load an already saved JSON file, go to "File" -> "Load from JSON file".
 
 ## About Licensing
 Copyright (c) 2021 fuyossi  
