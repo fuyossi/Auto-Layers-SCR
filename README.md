@@ -11,6 +11,10 @@ You can also save the layer information as a JSON file and reuse it in future se
 It can be saved with "File" -> "Save as JSON file".  
 To load an already saved JSON file, go to "File" -> "Load from JSON file".
 
+## System Requirement
+This application can be run on a Windows PC with .NET 6 installed. If .NET 6 is not installed, a message about installation will appear when the application is run.  
+For .NET 6 system requirements, see the .NET GitHub repository [here](https://github.com/dotnet/core/blob/main/release-notes/6.0/supported-os.md).
+
 ## About Licensing
 Copyright (c) 2021 fuyossi  
 Released under the MIT license  
