@@ -2,7 +2,7 @@
 [![CodeQL](https://github.com/fuyossi/Auto-Layers-SCR/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/fuyossi/Auto-Layers-SCR/actions/workflows/codeql-analysis.yml)
 [![license](https://img.shields.io/github/license/fuyossi/Auto-Layers-SCR)](https://github.com/fuyossi/Auto-Layers-SCR/blob/main/LICENSE)
 [![latest release](https://img.shields.io/github/v/release/fuyossi/Auto-Layers-SCR?label=latest%20release)](https://github.com/fuyossi/Auto-Layers-SCR/releases/latest)  
-<img src="https://raw.githubusercontent.com/fuyossi/Auto-Layers-SCR/main/Auto%20Layers%20SCR/Auto%20Layers%20SCRicon.png" width="100px">  
+<img src="https://raw.githubusercontent.com/fuyossi/Auto-Layers-SCR/main/Auto%20Layers%20SCR/Resources/icon.png" width="100px">  
 The application automatically generates SCR files for AutoCAD® software by simply entering the layer information.
 
 ## How to use
