@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Auto_Layers_SCR"
         mc:Ignorable="d"
-        Title="Auto Layers SCR" Height="500" Width="1000" Icon="/Auto Layers SCRicon.png" FontFamily="Arial" MinWidth="500" MinHeight="400" ResizeMode="CanResizeWithGrip">
+        Title="Auto Layers SCR" Height="500" Width="1000" Icon="Resources/icon.png" FontFamily="Arial" MinWidth="500" MinHeight="400" ResizeMode="CanResizeWithGrip">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">

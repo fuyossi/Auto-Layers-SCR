@@ -89,110 +89,143 @@ namespace Auto_Layers_SCR
             return error;
         }
 
-        private void CreateSCR()
+        public string CreateSCR()
         {
             int rowcount = DataGrid1.Items.Count;
             int error = CheckError(rowcount);
             if (error == 0)
             {
-                SaveFileDialog sfd = new()
+                string content;
+                content = "-LAYER\r\n";
+                for (int i = 0; i < rowcount; i++)
                 {
-                    FileName = "filename.scr",
-                    InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal),
-                    Filter = "SCR(*.scr)|*.scr|All files(*.*)|*.*",
-                    FilterIndex = 1,
-                    Title = "Select a file to save the file to.",
-                    RestoreDirectory = true,
-                    OverwritePrompt = true,
-                    CheckPathExists = true
-                };
-
-                if (sfd.ShowDialog() == true)
-                {
-                    System.IO.StreamWriter sw = new(sfd.FileName, false, System.Text.Encoding.UTF8);
-                    sw.WriteLine("-LAYER");
-                    for (int i = 0; i < rowcount; i++)
+                    var rowvalue = DataGrid1.ItemContainerGenerator.ContainerFromIndex(i) as DataGridRow;
+                    if (rowvalue == null)
                     {
-                        var rowvalue = DataGrid1.ItemContainerGenerator.ContainerFromIndex(i) as DataGridRow;
-                        if (rowvalue == null)
-                        {
-                            DataGrid1.UpdateLayout();
-                            DataGrid1.ScrollIntoView(DataGrid1.Items[i]);
-                            rowvalue = DataGrid1.ItemContainerGenerator.ContainerFromIndex(i) as DataGridRow;
-                        }
-                        rowvalue ??= new DataGridRow();
-                        Layer layer = rowvalue.Item as Layer ?? new Layer("", true, false, false, true, "7", "", "", "", "");
-                        sw.WriteLine("n");
-                        sw.WriteLine(layer.Layername);
-                        if (layer.Freeze)
-                        {
-                            sw.WriteLine("f");
-                            sw.WriteLine(layer.Layername);
-                        }
-                        else
-                        {
-                            sw.WriteLine("t");
-                            sw.WriteLine(layer.Layername);
-                        }
-                        if (layer.Lock)
-                        {
-                            sw.WriteLine("lo");
-                            sw.WriteLine(layer.Layername);
-                        }
-                        else
-                        {
-                            sw.WriteLine("u");
-                            sw.WriteLine(layer.Layername);
-                        }
-                        if (layer.Printing)
-                        {
-                            sw.WriteLine("p");
-                            sw.WriteLine("p");
-                            sw.WriteLine(layer.Layername);
-                        }
-                        else
-                        {
-                            sw.WriteLine("p");
-                            sw.WriteLine("n");
-                            sw.WriteLine(layer.Layername);
-                        }
-                        sw.WriteLine("c");
-                        sw.WriteLine(layer.Color);
-                        sw.WriteLine(layer.Layername);
-                        sw.WriteLine("l");
-                        sw.WriteLine(layer.Linetype);
-                        sw.WriteLine(layer.Layername);
-                        sw.WriteLine("lw");
-                        sw.WriteLine(layer.Lineweight);
-                        sw.WriteLine(layer.Layername);
-                        sw.WriteLine("tr");
-                        sw.WriteLine(layer.Permeability);
-                        sw.WriteLine(layer.Layername);
-                        sw.WriteLine("d");
-                        sw.WriteLine(layer.Description);
-                        sw.WriteLine(layer.Layername);
-                        if (layer.Display)
-                        {
-                            sw.WriteLine("on");
-                            sw.WriteLine(layer.Layername);
-                        }
-                        else
-                        {
-                            sw.WriteLine("off");
-                            sw.WriteLine(layer.Layername);
-                        }
+                        DataGrid1.UpdateLayout();
+                        DataGrid1.ScrollIntoView(DataGrid1.Items[i]);
+                        rowvalue = DataGrid1.ItemContainerGenerator.ContainerFromIndex(i) as DataGridRow;
                     }
-                    sw.WriteLine("");
-                    sw.WriteLine("qsave");
-                    sw.Close();
-                    MessageBox.Show("Generation completed.", "Auto Layers SCR", MessageBoxButton.OK, MessageBoxImage.Information);
+                    rowvalue ??= new DataGridRow();
+                    Layer layer = rowvalue.Item as Layer ?? new Layer("", true, false, false, true, "7", "", "", "", "");
+                    content += "n\r\n";
+                    content = content + layer.Layername + "\r\n";
+                    if (layer.Freeze)
+                    {
+                        content += "f\r\n";
+                        content = content + layer.Layername + "\r\n";
+                    }
+                    else
+                    {
+                        content += "t\r\n";
+                        content = content + layer.Layername + "\r\n";
+                    }
+                    if (layer.Lock)
+                    {
+                        content += "lo\r\n";
+                        content = content + layer.Layername + "\r\n";
+                    }
+                    else
+                    {
+                        content += "u\r\n";
+                        content = content + layer.Layername + "\r\n";
+                    }
+                    if (layer.Printing)
+                    {
+                        content += "p\r\n";
+                        content += "p\r\n";
+                        content = content + layer.Layername + "\r\n";
+                    }
+                    else
+                    {
+                        content += "p\r\n";
+                        content += "n\r\n";
+                        content = content + layer.Layername + "\r\n";
+                    }
+                    content += "c\r\n";
+                    content = content + layer.Color + "\r\n";
+                    content = content + layer.Layername + "\r\n";
+                    content += "l\r\n";
+                    content = content + layer.Linetype + "\r\n";
+                    content = content + layer.Layername + "\r\n";
+                    content += "lw\r\n";
+                    content = content + layer.Lineweight + "\r\n";
+                    content = content + layer.Layername + "\r\n";
+                    content += "tr\r\n";
+                    content = content + layer.Permeability + "\r\n";
+                    content = content + layer.Layername + "\r\n";
+                    content += "d\r\n";
+                    content = content + layer.Description + "\r\n";
+                    content = content + layer.Layername + "\r\n";
+                    if (layer.Display)
+                    {
+                        content += "on\r\n";
+                        content = content + layer.Layername + "\r\n";
+                    }
+                    else
+                    {
+                        content += "off\r\n";
+                        content = content + layer.Layername + "\r\n";
+                    }
                 }
+                content += "\r\n";
+                content += "qsave\r\n";
+
+                return content;
+            }
+            else
+            {
+                return "error";
             }
         }
 
-        private int GetCurrentRowNumber(DataGrid dg)
+        public static ObservableCollection<Layer> LoadJSON(string json)
         {
-            int row = 0;
+            var layers = JsonSerializer.Deserialize<ObservableCollection<Layer>>(json) ?? new ObservableCollection<Layer>();
+            return layers;
+        }
+
+        public string CreateJSON()
+        {
+            int rowcount = DataGrid1.Items.Count;
+            int error = CheckError(rowcount);
+            if (error == 0)
+            {
+                var json = JsonSerializer.Serialize(layers);
+                return json;
+            }
+            else
+            {
+                return "error";
+            }
+        }
+
+        private static void SaveFile(string content, string filename, string extension, string message)
+        {
+            SaveFileDialog sfd = new()
+            {
+                FileName = filename,
+                InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+                Filter = extension.ToUpper() + "(*." + extension + ")|*." + extension + "|All files(*.*)|*.*",
+                FilterIndex = 1,
+                Title = "Select a file to save the file to.",
+                RestoreDirectory = true,
+                OverwritePrompt = true,
+                CheckPathExists = true
+            };
+
+            if (sfd.ShowDialog() == true)
+            {
+                System.IO.StreamWriter sw = new(sfd.FileName, false, System.Text.Encoding.UTF8);
+                sw.Write(content);
+                sw.Close();
+                MessageBox.Show(message, "Auto Layers SCR", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private static int GetCurrentRowNumber(DataGrid dg)
+        {
+            int row;
             try
             {
                 row = dg.Items.IndexOf(dg.SelectedItem);
@@ -253,16 +286,19 @@ namespace Auto_Layers_SCR
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CreateSCR();
+            string content = CreateSCR();
+            SaveFile(content, "filename.scr", "scr", "Generation completed.");
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            CreateSCR();
+            string content = CreateSCR();
+            SaveFile(content, "filename.scr", "scr", "Generation completed.");
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
+            string json;
             MessageBoxResult result = MessageBox.Show("The information of the currently displayed layer will be overwritten.\r\nDo you want to continue?", "Auto Layers SCR", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result == MessageBoxResult.Yes)
             {
@@ -282,8 +318,9 @@ namespace Auto_Layers_SCR
                 if (ofd.ShowDialog() == true)
                 {
                     System.IO.StreamReader sr = new(ofd.FileName, System.Text.Encoding.UTF8);
-                    layers = JsonSerializer.Deserialize<ObservableCollection<Layer>>(sr.ReadToEnd()) ?? new ObservableCollection<Layer>();
+                    json = sr.ReadToEnd();
                     sr.Close();
+                    layers = LoadJSON(json);
                     DataGrid1.ItemsSource = layers;
                     MessageBox.Show("JSON file loading completed.", "Auto Layers SCR", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -292,31 +329,8 @@ namespace Auto_Layers_SCR
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
-            int rowcount = DataGrid1.Items.Count;
-            int error = CheckError(rowcount);
-            if (error == 0)
-            {
-                SaveFileDialog sfd = new()
-                {
-                    FileName = "JSONfilename.json",
-                    InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal),
-                    Filter = "JSON(*.json)|*.json|All files(*.*)|*.*",
-                    FilterIndex = 1,
-                    Title = "Select a file to save the file to.",
-                    RestoreDirectory = true,
-                    OverwritePrompt = true,
-                    CheckPathExists = true
-                };
-
-                if (sfd.ShowDialog() == true)
-                {
-                    System.IO.StreamWriter sw = new(sfd.FileName, false, System.Text.Encoding.UTF8);
-                    var json = JsonSerializer.Serialize(layers);
-                    sw.WriteLine(json);
-                    sw.Close();
-                    MessageBox.Show("JSON file creation completed.", "Auto Layers SCR", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
+            string json = CreateJSON();
+            SaveFile(json, "filename.json", "json", "JSON file creation completed.");
         }
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)

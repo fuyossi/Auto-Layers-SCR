@@ -6,9 +6,10 @@
     <RootNamespace>Auto_Layers_SCR</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <FileVersion>3.0.0.0</FileVersion>
+    <FileVersion>3.0.1.0</FileVersion>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ApplicationIcon>icon.ico</ApplicationIcon>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -16,11 +17,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Auto Layers SCRicon.png" />
+    <None Remove="Resources\icon.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,14 +46,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Auto Layers SCRicon.png" />
   </ItemGroup>
 
   <ItemGroup>
