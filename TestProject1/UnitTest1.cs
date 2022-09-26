@@ -11,7 +11,7 @@ namespace TestProject1
             mainWindow.Show();
             System.Threading.Thread.Sleep(1000);
             string result = mainWindow.CreateSCR();
-            Assert.Equal("-LAYER\r\nn\r\n01_\r\nt\r\n01_\r\nu\r\n01_\r\np\r\np\r\n01_\r\nc\r\n7\r\n01_\r\nl\r\n\r\n01_\r\nlw\r\n\r\n01_\r\ntr\r\n\r\n01_\r\nd\r\n\r\n01_\r\non\r\n01_\r\n\r\nqsave\r\n", result);
+            Assert.Equal("-LAYER\r\nn\r\n01_\r\nt\r\n01_\r\nu\r\n01_\r\np\r\np\r\n01_\r\nc\r\n7\r\n01_\r\non\r\n01_\r\n\r\nqsave\r\n", result);
         }
 
         [WpfFact]
@@ -33,7 +33,7 @@ namespace TestProject1
             MainWindow.LoadJSON("[{\"Layername\":\"01_\",\"Display\":true,\"Freeze\":false,\"Lock\":false,\"Printing\":true,\"Color\":\"7\",\"Linetype\":\"\",\"Lineweight\":\"\",\"Permeability\":\"\",\"Description\":\"\"}]");
             string result = mainWindow.CreateSCR();
             System.Threading.Thread.Sleep(1000);
-            Assert.Equal("-LAYER\r\nn\r\n01_\r\nt\r\n01_\r\nu\r\n01_\r\np\r\np\r\n01_\r\nc\r\n7\r\n01_\r\nl\r\n\r\n01_\r\nlw\r\n\r\n01_\r\ntr\r\n\r\n01_\r\nd\r\n\r\n01_\r\non\r\n01_\r\n\r\nqsave\r\n", result);
+            Assert.Equal("-LAYER\r\nn\r\n01_\r\nt\r\n01_\r\nu\r\n01_\r\np\r\np\r\n01_\r\nc\r\n7\r\n01_\r\non\r\n01_\r\n\r\nqsave\r\n", result);
         }
     }
 }

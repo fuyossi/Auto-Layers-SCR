@@ -142,21 +142,36 @@ namespace Auto_Layers_SCR
                         content += "n\r\n";
                         content = content + layer.Layername + "\r\n";
                     }
-                    content += "c\r\n";
-                    content = content + layer.Color + "\r\n";
-                    content = content + layer.Layername + "\r\n";
-                    content += "l\r\n";
-                    content = content + layer.Linetype + "\r\n";
-                    content = content + layer.Layername + "\r\n";
-                    content += "lw\r\n";
-                    content = content + layer.Lineweight + "\r\n";
-                    content = content + layer.Layername + "\r\n";
-                    content += "tr\r\n";
-                    content = content + layer.Permeability + "\r\n";
-                    content = content + layer.Layername + "\r\n";
-                    content += "d\r\n";
-                    content = content + layer.Description + "\r\n";
-                    content = content + layer.Layername + "\r\n";
+                    if (layer.Color != "")
+                    {
+                        content += "c\r\n";
+                        content = content + layer.Color + "\r\n";
+                        content = content + layer.Layername + "\r\n";
+                    }
+                    if (layer.Linetype != "")
+                    {
+                        content += "l\r\n";
+                        content = content + layer.Linetype + "\r\n";
+                        content = content + layer.Layername + "\r\n";
+                    }
+                    if (layer.Lineweight != "")
+                    {
+                        content += "lw\r\n";
+                        content = content + layer.Lineweight + "\r\n";
+                        content = content + layer.Layername + "\r\n";
+                    }
+                    if (layer.Permeability != "")
+                    {
+                        content += "tr\r\n";
+                        content = content + layer.Permeability + "\r\n";
+                        content = content + layer.Layername + "\r\n";
+                    }
+                    if (layer.Description != "")
+                    {
+                        content += "d\r\n";
+                        content = content + layer.Description + "\r\n";
+                        content = content + layer.Layername + "\r\n";
+                    }
                     if (layer.Display)
                     {
                         content += "on\r\n";
