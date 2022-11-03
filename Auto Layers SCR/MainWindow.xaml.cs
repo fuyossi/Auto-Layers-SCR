@@ -190,7 +190,7 @@ namespace Auto_Layers_SCR
             }
             else
             {
-                return "error";
+                return "";
             }
         }
 
@@ -211,7 +211,7 @@ namespace Auto_Layers_SCR
             }
             else
             {
-                return "error";
+                return "";
             }
         }
 
@@ -302,13 +302,19 @@ namespace Auto_Layers_SCR
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string content = CreateSCR();
-            SaveFile(content, "filename.scr", "scr", "Generation completed.");
+            if (content != "")
+            {
+                SaveFile(content, "filename.scr", "scr", "Generation completed.");
+            }
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             string content = CreateSCR();
-            SaveFile(content, "filename.scr", "scr", "Generation completed.");
+            if (content != "")
+            {
+                SaveFile(content, "filename.scr", "scr", "Generation completed.");
+            }
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
@@ -345,7 +351,10 @@ namespace Auto_Layers_SCR
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
             string json = CreateJSON();
-            SaveFile(json, "filename.json", "json", "JSON file creation completed.");
+            if (json != "")
+            {
+                SaveFile(json, "filename.json", "json", "JSON file creation completed.");
+            }
         }
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
