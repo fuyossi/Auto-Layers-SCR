@@ -8,7 +8,7 @@
         Title="About Auto Layers SCR" Height="250" Width="450" Icon="/Resources/icon.png" WindowStartupLocation="CenterOwner" FontFamily="Arial" ResizeMode="NoResize">
     <Grid>
         <Image HorizontalAlignment="Left" Height="100" Margin="20,20,0,0" VerticalAlignment="Top" Width="100" Source="/Resources/icon.png"/>
-        <TextBlock x:Name="TextBlock1" HorizontalAlignment="Center" Margin="140,30,0,0" TextWrapping="Wrap" Text="Auto Layers SCR v3.0.2" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlock1" HorizontalAlignment="Center" Margin="140,30,0,0" TextWrapping="Wrap" Text="Auto Layers SCR v3.0.3" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Center" Margin="140,50,0,0" TextWrapping="Wrap" Text="Copyright (c) 2021 fuyossi" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Center" Margin="140,70,0,0" TextWrapping="Wrap" Text="Released under the MIT license" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="140,90,0,0">
