@@ -6,7 +6,7 @@
     <RootNamespace>Auto_Layers_SCR</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <FileVersion>3.0.2.0</FileVersion>
+    <FileVersion>3.0.3.0</FileVersion>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
