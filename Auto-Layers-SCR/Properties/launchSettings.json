@@ -1,9 +1,6 @@
 {
   "profiles": {
-    "Auto-Layers-SCR (Package)": {
-      "commandName": "MsixPackage"
-    },
-    "Auto-Layers-SCR (Unpackaged)": {
+    "Auto-Layers-SCR": {
       "commandName": "Project"
     }
   }

@@ -26,11 +26,13 @@ namespace Auto_Layers_SCR
         public MainWindow()
         {
             this.InitializeComponent();
+            this.AppWindow.SetIcon("icon.ico");
+            this.AppWindow.Resize(new(1200, 700));
         }
 
         private void myButton_Click(object sender, RoutedEventArgs e)
         {
-            myButton.Content = "Clicked";
+            
         }
     }
 }
