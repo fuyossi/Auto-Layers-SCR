@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Auto_Layers_SCR.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Auto_Layers_SCR"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,70,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="icon.ico" Stretch="Fill" Height="100" Width="100"></Image>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0">
+                    <TextBlock TextAlignment="Center"><Bold>Auto Layers SCR</Bold></TextBlock>
+                    <TextBlock TextAlignment="Center" x:Name="appVersion">v4.0.0</TextBlock>
+                    <TextBlock TextAlignment="Center">Copyright (c) 2025 fuyossi</TextBlock>
+                    <TextBlock TextAlignment="Center">Released under the MIT license</TextBlock>
+                    <HyperlinkButton HorizontalAlignment="Center" Content="https://opensource.org/license/mit" NavigateUri="https://opensource.org/license/mit" />
+                </StackPanel>
+            </StackPanel>
+            <HyperlinkButton HorizontalAlignment="Center" Margin="0,60,0,0" Content="This app source on GitHub" NavigateUri="https://github.com/fuyossi/Auto-Layers-SCR" />
+            <HyperlinkButton HorizontalAlignment="Center" Content="fuyossi on GitHub" NavigateUri="https://github.com/fuyossi" />
+        </StackPanel>
+    </Grid>
+</Page>

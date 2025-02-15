@@ -13,26 +13,44 @@ using Microsoft.UI.Xaml.Navigation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
-
 namespace Auto_Layers_SCR
 {
-    /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainWindow : Window
     {
         public MainWindow()
         {
             this.InitializeComponent();
-            this.AppWindow.SetIcon("icon.ico");
-            this.AppWindow.Resize(new(1200, 700));
+
+            ExtendsContentIntoTitleBar = true;
+            SetTitleBar(AppTitleBar);
+
+            navView.SelectedItem = navView.MenuItems[0];
+            navView.IsSettingsVisible = false;
+            NavigateToPage("home");
+        }
+        private void navView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            string tag = args.InvokedItemContainer.Tag.ToString()!;
+            NavigateToPage(tag);
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
+        private void NavigateToPage(string tag)
         {
-            
+            Type pageType = null;
+            switch (tag)
+            {
+                case "home":
+                    pageType = typeof(HomePage);
+                    break;
+                case "settings":
+                    pageType = typeof(SettingsPage);
+                    break;
+            }
+
+            if (pageType != null && contentFrame.CurrentSourcePageType != pageType)
+            {
+                contentFrame.Navigate(pageType);
+            }
         }
     }
 }
