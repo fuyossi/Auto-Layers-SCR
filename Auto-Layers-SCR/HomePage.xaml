@@ -112,6 +112,7 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" RelativePanel.AlignBottomWithPanel="True">
                 <Button x:Name="AddRowButton" Content="Add new row" Click="AddRowButton_Click" Margin="5" Style="{StaticResource DefaultButtonStyle}" CornerRadius="10" Padding="15,5"/>
                 <Button x:Name="DeleteRowButton" Content="Delete selected row" Click="DeleteRowButton_Click" Margin="5" Style="{StaticResource DefaultButtonStyle}" CornerRadius="10" Padding="15,5"/>
+                <Button x:Name="GenerateButton" Content="Generate" Click="GenerateButton_Click" Margin="5" Style="{StaticResource DefaultButtonStyle}" CornerRadius="10" Padding="15,5"/>
             </StackPanel>
         </RelativePanel>
     </Grid>
