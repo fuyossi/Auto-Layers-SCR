@@ -3,8 +3,12 @@ using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Text;
+using System.Text.Json;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using WinRT.Interop;
 
 namespace Auto_Layers_SCR
 {
@@ -192,23 +196,26 @@ namespace Auto_Layers_SCR
             }
         }
 
-        private async void SaveFile(string content)
+        private async void SaveFile(string content, string extensionName, string extension)
         {
-            var window = new Microsoft.UI.Xaml.Window();
-            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
             FileSavePicker savePicker = new FileSavePicker();
             savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             // Dropdown of file types the user can save the file as
-            savePicker.FileTypeChoices.Add("AutoCAD Script File", new List<string>() { ".scr" });
+            savePicker.FileTypeChoices.Add(extensionName, new List<string>() { extension });
             // Default file name if the user does not type one in or select a file to replace
             savePicker.SuggestedFileName = "New File";
 
-            WinRT.Interop.InitializeWithWindow.Initialize(savePicker, hwnd);
+            nint windowHandle = WindowNative.GetWindowHandle(App.m_window);
+            InitializeWithWindow.Initialize(savePicker, windowHandle);
             StorageFile file = await savePicker.PickSaveFileAsync();
             if (file != null)
             {
                 // write to file
-                await FileIO.WriteTextAsync(file, content);
+                using (Stream stream = await file.OpenStreamForWriteAsync())
+                using (StreamWriter writer = new StreamWriter(stream, new UTF8Encoding(encoderShouldEmitUTF8Identifier: true)))
+                {
+                    writer.Write(content);
+                }
                 ShowDialog("File was saved", "File " + file.Name + " was saved.");
             }
             else
@@ -217,9 +224,64 @@ namespace Auto_Layers_SCR
             }
         }
 
-        private void LoadButton_Click(object sender, RoutedEventArgs e)
+        public static ObservableCollection<Layer> LoadJSON(string json)
         {
+            var layers = JsonSerializer.Deserialize<ObservableCollection<Layer>>(json) ?? new ObservableCollection<Layer>();
+            return layers;
+        }
 
+        public string CreateJSON()
+        {
+            int rowcount = layers.Count;
+            bool isError = CheckError(rowcount);
+            if (!isError)
+            {
+                var json = JsonSerializer.Serialize(layers);
+                return json;
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        private async void LoadButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialog dialog = new ContentDialog
+            {
+                // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+                XamlRoot = this.XamlRoot,
+                Title = "Data will be lost",
+                Content = "The information of the currently displayed layer will be overwritten.\r\nDo you want to continue?",
+                PrimaryButtonText = "Yes",
+                CloseButtonText = "No"
+            };
+            ContentDialogResult dialogresult = await dialog.ShowAsync();
+            if (dialogresult == ContentDialogResult.Primary)
+            {
+                DataGrid1.ItemsSource = null;
+
+                FileOpenPicker openPicker = new FileOpenPicker();
+                openPicker.ViewMode = PickerViewMode.Thumbnail;
+                openPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+                openPicker.FileTypeFilter.Add(".json");
+
+                nint windowHandle = WindowNative.GetWindowHandle(App.m_window);
+                InitializeWithWindow.Initialize(openPicker, windowHandle);
+                StorageFile file = await openPicker.PickSingleFileAsync();
+
+                if (file != null)
+                {
+                    string json = await FileIO.ReadTextAsync(file);
+                    layers = LoadJSON(json);
+                    DataGrid1.ItemsSource = layers;
+                    ShowDialog("Loading completed.", "JSON file loading completed.");
+                }
+                else
+                {
+                    ShowDialog("File couldn't be opened", "Operation cancelled.");
+                }
+            }
         }
 
         private void AddRowButton_Click(object sender, RoutedEventArgs e)
@@ -243,12 +305,21 @@ namespace Auto_Layers_SCR
             layers.RemoveAt(rowNumber);
         }
 
-        private void GenerateButton_Click(object sender, RoutedEventArgs e)
+        private void GenerateSCRButton_Click(object sender, RoutedEventArgs e)
         {
             string content = CreateSCR();
             if (content != "")
             {
-                SaveFile(content);
+                SaveFile(content, "AutoCAD Script File", ".scr");
+            }
+        }
+
+        private void GenerateJSONButton_Click(object sender, RoutedEventArgs e)
+        {
+            string json = CreateJSON();
+            if (json != "")
+            {
+                SaveFile(json, "JSON File", ".json");
             }
         }
     }

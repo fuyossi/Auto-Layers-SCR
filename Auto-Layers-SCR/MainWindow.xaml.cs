@@ -1,6 +1,6 @@
-using System;
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using System;
 
 namespace Auto_Layers_SCR
 {
@@ -25,7 +25,7 @@ namespace Auto_Layers_SCR
 
         private void NavigateToPage(string tag)
         {
-            Type pageType = null;
+            Type pageType = typeof(HomePage);
             switch (tag)
             {
                 case "home":

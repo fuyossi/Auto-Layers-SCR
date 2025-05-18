@@ -13,7 +13,7 @@
 
     <Grid>
         <RelativePanel>
-            <Button x:Name="LoadButton" Content="Load from CSV file" Click="LoadButton_Click" Margin="5" Style="{StaticResource DefaultButtonStyle}" CornerRadius="10" Padding="15,5"/>
+            <Button x:Name="LoadButton" Content="Load from JSON file" Click="LoadButton_Click" Margin="5" Style="{StaticResource DefaultButtonStyle}" CornerRadius="10" Padding="15,5"/>
             <controls:DataGrid x:Name="DataGrid1"
                                AutoGenerateColumns="False"
                                HorizontalScrollBarVisibility="Visible"
@@ -112,7 +112,8 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" RelativePanel.AlignBottomWithPanel="True">
                 <Button x:Name="AddRowButton" Content="Add new row" Click="AddRowButton_Click" Margin="5" Style="{StaticResource DefaultButtonStyle}" CornerRadius="10" Padding="15,5"/>
                 <Button x:Name="DeleteRowButton" Content="Delete selected row" Click="DeleteRowButton_Click" Margin="5" Style="{StaticResource DefaultButtonStyle}" CornerRadius="10" Padding="15,5"/>
-                <Button x:Name="GenerateButton" Content="Generate" Click="GenerateButton_Click" Margin="5" Style="{StaticResource DefaultButtonStyle}" CornerRadius="10" Padding="15,5"/>
+                <Button x:Name="GenerateSCRButton" Content="Generate SCR file" Click="GenerateSCRButton_Click" Margin="5" Style="{StaticResource AccentButtonStyle}" CornerRadius="10" Padding="15,5"/>
+                <Button x:Name="GenerateJSONButton" Content="Generate JSON file" Click="GenerateJSONButton_Click" Margin="5" Style="{StaticResource DefaultButtonStyle}" CornerRadius="10" Padding="15,5"/>
             </StackPanel>
         </RelativePanel>
     </Grid>
