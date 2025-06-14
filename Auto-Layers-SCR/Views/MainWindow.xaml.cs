@@ -2,7 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System;
 
-namespace Auto_Layers_SCR
+namespace Auto_Layers_SCR.Views
 {
     public sealed partial class MainWindow : Window
     {

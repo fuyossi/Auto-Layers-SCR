@@ -1,8 +1,5 @@
 ﻿using Microsoft.UI.Xaml;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
-
 namespace Auto_Layers_SCR
 {
     /// <summary>
@@ -27,7 +24,7 @@ namespace Auto_Layers_SCR
 
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            m_window = new MainWindow();
+            m_window = new Views.MainWindow();
             m_window.Activate();
         }
     }

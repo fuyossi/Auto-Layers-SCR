@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="Auto_Layers_SCR.HomePage"
+    x:Class="Auto_Layers_SCR.Views.HomePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Auto_Layers_SCR"
@@ -8,18 +8,25 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
     xmlns:primitives="using:CommunityToolkit.WinUI.UI.Controls.Primitives"
+    xmlns:vm="using:Auto_Layers_SCR.ViewModels"
     mc:Ignorable="d"
+    NavigationCacheMode="Required"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vm:HomePageViewModel/>
+    </Page.DataContext>
 
     <Grid>
         <RelativePanel>
-            <Button x:Name="LoadButton" Content="Load from JSON file" Click="LoadButton_Click" Margin="5" Style="{StaticResource DefaultButtonStyle}" CornerRadius="10" Padding="15,5"/>
-            <controls:DataGrid x:Name="DataGrid1"
+            <Button x:Name="LoadJSONButton" Content="Load from JSON file" Click="LoadJSONButton_Click" Margin="5" Style="{StaticResource DefaultButtonStyle}" CornerRadius="10" Padding="15,5"/>
+            <controls:DataGrid x:Name="LayerDataGrid"
+                               ItemsSource="{Binding Layers}"
                                AutoGenerateColumns="False"
                                HorizontalScrollBarVisibility="Visible"
                                VerticalScrollBarVisibility="Visible"
                                AlternatingRowBackground="Gainsboro"
-                               RelativePanel.Below="LoadButton"
+                               RelativePanel.Below="LoadJSONButton"
                                RelativePanel.AlignVerticalCenterWithPanel="True"
                                RelativePanel.AlignLeftWithPanel="True"
                                RelativePanel.AlignRightWithPanel="True">
@@ -110,7 +117,7 @@
                 </controls:DataGrid.Columns>
             </controls:DataGrid>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" RelativePanel.AlignBottomWithPanel="True">
-                <Button x:Name="AddRowButton" Content="Add new row" Click="AddRowButton_Click" Margin="5" Style="{StaticResource DefaultButtonStyle}" CornerRadius="10" Padding="15,5"/>
+                <Button x:Name="AddRowButton" Content="Add new row" Command="{Binding AddRowClickCommand}" Margin="5" Style="{StaticResource DefaultButtonStyle}" CornerRadius="10" Padding="15,5"/>
                 <Button x:Name="DeleteRowButton" Content="Delete selected row" Click="DeleteRowButton_Click" Margin="5" Style="{StaticResource DefaultButtonStyle}" CornerRadius="10" Padding="15,5"/>
                 <Button x:Name="GenerateSCRButton" Content="Generate SCR file" Click="GenerateSCRButton_Click" Margin="5" Style="{StaticResource AccentButtonStyle}" CornerRadius="10" Padding="15,5"/>
                 <Button x:Name="GenerateJSONButton" Content="Generate JSON file" Click="GenerateJSONButton_Click" Margin="5" Style="{StaticResource DefaultButtonStyle}" CornerRadius="10" Padding="15,5"/>
