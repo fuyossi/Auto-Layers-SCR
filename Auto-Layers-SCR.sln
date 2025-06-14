@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auto-Layers-SCR", "Auto-Layers-SCR\Auto-Layers-SCR.csproj", "{4399BE9F-E2C9-47CC-8868-FF204ECE2646}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auto-Layers-SCR.Tests", "Auto-Layers-SCR.Tests\Auto-Layers-SCR.Tests.csproj", "{6B0E32DC-C05D-4104-8ECE-D3DEC92D372E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -17,8 +19,14 @@ Global
 		{4399BE9F-E2C9-47CC-8868-FF204ECE2646}.Release|x64.ActiveCfg = Release|x64
 		{4399BE9F-E2C9-47CC-8868-FF204ECE2646}.Release|x64.Build.0 = Release|x64
 		{4399BE9F-E2C9-47CC-8868-FF204ECE2646}.Release|x64.Deploy.0 = Release|x64
+		{6B0E32DC-C05D-4104-8ECE-D3DEC92D372E}.Debug|x64.ActiveCfg = Debug|x64
+		{6B0E32DC-C05D-4104-8ECE-D3DEC92D372E}.Debug|x64.Build.0 = Debug|x64
+		{6B0E32DC-C05D-4104-8ECE-D3DEC92D372E}.Release|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58CD0BD2-AB61-4DA0-ABED-895D556C17D3}
 	EndGlobalSection
 EndGlobal

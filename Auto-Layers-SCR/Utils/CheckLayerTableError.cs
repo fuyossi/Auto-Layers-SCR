@@ -7,7 +7,7 @@ namespace Auto_Layers_SCR.Utils
     /// <summary>
     /// Check any errors in layer table.
     /// </summary>
-    internal class CheckLayerTableError
+    public class CheckLayerTableError
     {
         protected static (bool /* isError */, string /* briefErrorMessage */, string /* fullErrorMessage */) CheckError(ObservableCollection<Layer> layers)
         {

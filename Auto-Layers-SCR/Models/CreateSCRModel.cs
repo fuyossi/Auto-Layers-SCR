@@ -7,7 +7,7 @@ namespace Auto_Layers_SCR.Models
     /// <summary>
     /// Create content of SCR file from layer table.
     /// </summary>
-    internal class CreateSCRModel : CheckLayerTableError
+    public class CreateSCRModel : CheckLayerTableError
     {
         public static (bool /* isError */, string /* content */, string  /* briefErrorMessage */, string /* fullErrorMessage */) CreateSCR(ObservableCollection<Layer> Layers)
         {

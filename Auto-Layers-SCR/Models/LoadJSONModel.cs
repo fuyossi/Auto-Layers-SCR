@@ -7,7 +7,7 @@ namespace Auto_Layers_SCR.Models
     /// <summary>
     /// Load JSON.
     /// </summary>
-    internal class LoadJSONModel
+    public class LoadJSONModel
     {
         public static ObservableCollection<Layer> LoadJSON(string json)
         {

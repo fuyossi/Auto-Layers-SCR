@@ -8,7 +8,7 @@ namespace Auto_Layers_SCR.Models
     /// <summary>
     /// Create JSON content from layer table.
     /// </summary>
-    internal class CreateJSONModel : CheckLayerTableError
+    public class CreateJSONModel : CheckLayerTableError
     {
         public static (bool /* isError */, string /* content */, string  /* briefErrorMessage */, string /* fullErrorMessage */) CreateJSON(ObservableCollection<Layer> Layers)
         {
