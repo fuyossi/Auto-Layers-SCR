@@ -15,6 +15,9 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
+    - name: Install Windows App SDK and workloads
+      run: |
+          choco install visualstudio2022buildtools --package-parameters "--add Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools --includeRecommended --quiet" -y
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
