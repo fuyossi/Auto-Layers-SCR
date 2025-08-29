@@ -1,6 +1,4 @@
 # Auto Layers SCR
-[![CodeQL](https://github.com/fuyossi/Auto-Layers-SCR/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/fuyossi/Auto-Layers-SCR/actions/workflows/codeql-analysis.yml)
-[![Tests](https://github.com/fuyossi/Auto-Layers-SCR/actions/workflows/tests.yml/badge.svg)](https://github.com/fuyossi/Auto-Layers-SCR/actions/workflows/tests.yml)
 [![license](https://img.shields.io/github/license/fuyossi/Auto-Layers-SCR)](https://github.com/fuyossi/Auto-Layers-SCR/blob/main/LICENSE)
 [![latest release](https://img.shields.io/github/v/release/fuyossi/Auto-Layers-SCR?label=latest%20release)](https://github.com/fuyossi/Auto-Layers-SCR/releases/latest)  
 <img src="https://raw.githubusercontent.com/fuyossi/Auto-Layers-SCR/refs/heads/main/Auto-Layers-SCR/icon.ico" width="100px">  
