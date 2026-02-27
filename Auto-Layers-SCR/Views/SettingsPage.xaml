@@ -15,8 +15,8 @@
                 <Image Source="/icon.ico" Stretch="Fill" Height="100" Width="100"></Image>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0">
                     <TextBlock TextAlignment="Center"><Bold>Auto Layers SCR</Bold></TextBlock>
-                    <TextBlock TextAlignment="Center" x:Name="appVersion">v4.0.0</TextBlock>
-                    <TextBlock TextAlignment="Center">Copyright (c) 2025 fuyossi</TextBlock>
+                    <TextBlock TextAlignment="Center" x:Name="appVersion">v4.1.0</TextBlock>
+                    <TextBlock TextAlignment="Center">Copyright (c) 2026 fuyossi</TextBlock>
                     <TextBlock TextAlignment="Center">Released under the MIT license</TextBlock>
                     <HyperlinkButton HorizontalAlignment="Center" Content="https://opensource.org/license/mit" NavigateUri="https://opensource.org/license/mit" />
                 </StackPanel>
