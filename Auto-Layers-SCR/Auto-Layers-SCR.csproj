@@ -13,6 +13,8 @@
     <Nullable>enable</Nullable>
 	<WindowsPackageType>None</WindowsPackageType>
 	<LangVersion>preview</LangVersion>
+	<EnableNETAnalyzers>true</EnableNETAnalyzers>
+	<AnalysisLevel>latest-All</AnalysisLevel>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="HomePage.xaml" />

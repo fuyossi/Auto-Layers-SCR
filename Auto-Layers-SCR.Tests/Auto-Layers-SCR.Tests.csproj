@@ -8,6 +8,8 @@
     <IsPackable>false</IsPackable>
     <Platforms>x64</Platforms>
 	<EnableMsixTooling>true</EnableMsixTooling>
+	<EnableNETAnalyzers>true</EnableNETAnalyzers>
+	<AnalysisLevel>latest-All</AnalysisLevel>
   </PropertyGroup>
 
   <ItemGroup>
