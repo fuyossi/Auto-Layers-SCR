@@ -1,0 +1,30 @@
+name: xUnit Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 10.0.x
+        include-prerelease: true
+
+    - name: Restore dependencies
+      run: dotnet restore Auto-Layers-SCR.sln
+
+    - name: Build
+      run: dotnet build Auto-Layers-SCR.sln --configuration Release --no-restore
+
+    - name: Run tests
+      run: dotnet test Auto-Layers-SCR.Tests/Auto-Layers-SCR.Tests.csproj --configuration Release --no-build --verbosity normal
