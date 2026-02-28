@@ -6,7 +6,7 @@ namespace Auto_Layers_SCR.Tests
 {
     public class UnitTest1
     {
-        [Fact]
+        [StaFact]
         public void TestCreateSCR()
         {
             ObservableCollection<Layer> Layers = [new Layer("01_", true, false, false, true, "7", "", "", "", "")];
@@ -14,7 +14,7 @@ namespace Auto_Layers_SCR.Tests
             Assert.Equal("-LAYER\r\nn\r\n\"01_\"\r\nt\r\n\"01_\"\r\nu\r\n\"01_\"\r\np\r\np\r\n\"01_\"\r\nc\r\n7\r\n\"01_\"\r\non\r\n\"01_\"\r\n\r\nqsave\r\n", result.Item2);
         }
 
-        [Fact]
+        [StaFact]
         public void TestCreateJSON()
         {
             ObservableCollection<Layer> Layers = [new Layer("01_", true, false, false, true, "7", "", "", "", "")];
@@ -22,7 +22,7 @@ namespace Auto_Layers_SCR.Tests
             Assert.Equal("[{\"Layername\":\"01_\",\"Display\":true,\"Freeze\":false,\"Lock\":false,\"Printing\":true,\"Color\":\"7\",\"Linetype\":\"\",\"Lineweight\":\"\",\"Permeability\":\"\",\"Description\":\"\"}]", result.Item2);
         }
 
-        [Fact]
+        [StaFact]
         public void TestLoadJSON()
         {
             var Layers = LoadJSONModel.LoadJSON("[{\"Layername\":\"01_\",\"Display\":true,\"Freeze\":false,\"Lock\":false,\"Printing\":true,\"Color\":\"7\",\"Linetype\":\"\",\"Lineweight\":\"\",\"Permeability\":\"\",\"Description\":\"\"}]");
