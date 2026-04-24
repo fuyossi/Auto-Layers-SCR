@@ -12,19 +12,28 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: 10.0.x
-        include-prerelease: true
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v3
 
     - name: Restore dependencies
-      run: dotnet restore Auto-Layers-SCR.sln
+      run: msbuild /t:Restore /p:Configuration=Release
 
     - name: Build
-      run: dotnet build Auto-Layers-SCR.sln --configuration Release --no-restore
+      run: |
+        msbuild Auto-Layers-SCR.Tests/Auto-Layers-SCR.Tests.csproj `
+                /p:Configuration=Release `
+                /p:Platform=x64 `
+                /p:AppxBundle=Never
 
     - name: Run tests
-      run: dotnet test Auto-Layers-SCR.Tests/Auto-Layers-SCR.Tests.csproj --configuration Release --no-build --verbosity normal
+      run: |
+        dotnet test Auto-Layers-SCR.Tests/Auto-Layers-SCR.Tests.csproj `
+                    --configuration Release `
+                    --no-build
