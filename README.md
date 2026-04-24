@@ -1,5 +1,5 @@
 # Auto Layers SCR
-[![license](https://img.shields.io/github/license/fuyossi/Auto-Layers-SCR)](https://github.com/fuyossi/Auto-Layers-SCR/blob/main/LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-blue)](https://github.com/fuyossi/Auto-Layers-SCR/blob/main/LICENSE)
 [![latest release](https://img.shields.io/github/v/release/fuyossi/Auto-Layers-SCR?label=latest%20release)](https://github.com/fuyossi/Auto-Layers-SCR/releases/latest)  
 <img src="https://raw.githubusercontent.com/fuyossi/Auto-Layers-SCR/refs/heads/main/Auto-Layers-SCR/icon.ico" width="100px">  
 The application automatically generates SCR files for AutoCAD® software by simply entering the layer information.
@@ -9,11 +9,11 @@ Enter the layer information in the table and click the Generate button.
 You can also save the layer information as a JSON file and reuse it in future sessions.
 
 ## System Requirement
-This application can be run on a Windows PC with Windows App SDK and .NET 9 installed. If these are not installed, a message about installation will appear when the application is run.  
+This application can be run on a Windows PC with Windows App SDK and .NET 10 installed. If these are not installed, a message about installation will appear when the application is run.  
 Due to these dependencies, this app will only work on Windows 10 or later. Note that this app has only been tested on Windows 11 and has not been tested on Windows 10.
 
 ## About Licensing
-Copyright (c) 2025 fuyossi  
+Copyright (c) 2026 fuyossi  
 Released under the MIT license  
 [https://opensource.org/licenses/mit-license.php](https://opensource.org/licenses/mit-license.php)  
 
