@@ -6,6 +6,11 @@
 version: 2
 updates:
   - package-ecosystem: "nuget" # See documentation for possible values
-    directory: "/*" # Location of package manifests
+    directory: "/Auto-Layers-SCR" # Location of package manifests
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "nuget" # See documentation for possible values
+    directory: "/Auto-Layers-SCR.Tests" # Location of package manifests
     schedule:
       interval: "daily"
